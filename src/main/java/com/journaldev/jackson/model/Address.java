@@ -1,8 +1,8 @@
 package com.journaldev.jackson.model;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.commons.math3.analysis.UnivariateFunction;
+import org.apache.commons.math3.analysis.polynomials.PolynomialFunction;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 public class Address {
@@ -35,26 +35,23 @@ public class Address {
 		return getStreet() + ", "+getCity()+", "+getZipcode();
 	}
 
-	public String squareOfToString(Integer a){
+/*	public double multiple(Integer a){
 
-		Integer[]inputArray={1,2,3,4};
+		double [] coefficients = new double[]{4,3,2,1};
 
-		DescriptiveStatistics stats = new DescriptiveStatistics();
+		PolynomialFunction polynomialFunction = new PolynomialFunction(coefficients);
 
-// Add the data from the array
-		for( int i = 0; i < inputArray.length; i++) {
-			stats.addValue(inputArray[i]);
-		}
+		return polynomialFunction.value(a);
+	}*/
 
-// Compute some statistics
-		double mean = stats.getMean();
-		double std = stats.getStandardDeviation();
-		double median = stats.getPercentile(50);
+	public double antiMultiple(Integer a){
 
-		return String.valueOf(mean);
+		double [] coefficients = new double[]{-4,-3,-2,-1};
 
-		/*ObjectMapper objectMapper = new ObjectMapper();
-		objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-		return a*a+a.toString();*/
+		PolynomialFunction polynomialFunction = new PolynomialFunction(coefficients);
+
+		return polynomialFunction.value(a);
 	}
+
+
 }
